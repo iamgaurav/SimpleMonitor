@@ -7,6 +7,11 @@ from multiprocessing import Process
 logging.basicConfig(level=logging.DEBUG, filename='monitor.log')
 
 def slack(msg,exception):
+    """
+    :param msg: Summary for the Slack message
+    :param exception: Description for the slack message
+    :return: None
+    """
     payload = {
         'username': os.getenv('slack_user'),
         "attachments": [ {
@@ -21,7 +26,9 @@ def slack(msg,exception):
 
 def check_url(data, timeout):
     """
-    Checks if the URL is up or not.
+    :param data: service data object
+    :param timeout: url timeout
+    :return: None
     """
     try:
         headers = {
