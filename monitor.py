@@ -23,7 +23,9 @@ def check_url(data, timeout):
     Checks if the URL is up or not.
     """
     try:
-        response = requests.get(data.get('url'), timeout=timeout)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
+        response = requests.get(data.get('url'), timeout=timeout, headers=headers)
         if response.status_code != data.get('status'):
             slack("Service Down: {0} Status Code: {1}".format(data.get('name'), response.status_code), str(response.headers))
         else:
