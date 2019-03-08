@@ -17,6 +17,23 @@ By running the following file:
 
 `python3 config_generator.py`
 
+This will generate a config.json file with the following structure
+
+```
+{
+   "timeout": 30,
+   "slack_user": "Slack Username",
+   "slack_web_hook":"Slack Webhook URL",
+   "services":[
+      {
+         "name":"Domain Name",
+         "url":"URL",
+         "status":200 # Matches the status code
+      }
+   ]
+}
+```
+
 ## Run
 
 The script can be added to the crontab based on the interval period you want to check the URL status for.
