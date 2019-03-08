@@ -21,7 +21,7 @@ def slack(msg,exception):
             "text": exception,
         }],
     }
-    request = requests.post(os.getenv('slack_web_hook'), json=payload)
+    _ = requests.post(os.getenv('slack_web_hook'), json=payload)
 
 
 def check_url(data, timeout):
