@@ -18,7 +18,7 @@ except KeyError as e:
     logging.fatal("Config Invalid. Missing {}".format(e.args))
     exit(1)
 except FileNotFoundError:
-    logging.fatal("Config file not present")
+    logging.fatal("Config file not present. Please generate one using the config_generator.py")
     exit(1)
 
 
@@ -28,6 +28,7 @@ def check_url(data, timeout):
     """
     try:
         response = requests.get(data.get('url'), timeout=timeout).elapsed.total_seconds()
+        print(response)
     except requests.exceptions.RequestException as e:
         logging.critical(e)
 
