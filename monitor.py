@@ -4,6 +4,7 @@ import requests
 import os
 from multiprocessing import Process
 
+logging.basicConfig(level=logging.DEBUG, filename='monitor.log')
 
 def slack(msg,exception):
     payload = {
