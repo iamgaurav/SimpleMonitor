@@ -26,6 +26,8 @@ def check_url(data, timeout):
         response = requests.get(data.get('url'), timeout=timeout)
         if response.status_code != data.get('status'):
             slack("Service Down: {0} Status Code: {1}".format(data.get('name'), response.status_code), response.headers)
+        else:
+            logging.info("Service: {} up".format(data.get('name')))
     except requests.exceptions.RequestException as e:
         logging.critical(e)
         slack("Service Down: {0}".format(data.get('name')), str(e))
