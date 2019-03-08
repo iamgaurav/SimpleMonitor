@@ -16,3 +16,12 @@ The script comes with a config generator which can be used to create/update an e
 By running the following file:
 
 `python3 config_generator.py`
+
+## Run
+
+The script can be added to the crontab based on the interval period you want to check the URL status for.
+
+Example
+```
+*/15 * * * * /usr/bin/python3 monitor.py # runs every 15 minutes.
+```

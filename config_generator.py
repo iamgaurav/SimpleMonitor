@@ -13,15 +13,20 @@ if __name__ == "__main__":
 
     if "services" in config:
         print("To add a new service please provide the name and url")
-        name, url = input("name:"), input("url:")
-        config['services'].append({'name': name, 'url': url})
+        name, url, status = input("name:"), input("url:"), input("status code check:")
+        config['services'].append({'name': name, 'url': url, 'status': int(status)})
     else:
         timeout = input("timeout:")
+        slack_user = input("slack username:")
+        slack_web_hook = input("slack webhook url:")
+
         print("To add a new service please provide the name and url")
-        name, url = input("name:"), input("url:")
+        name, url, status = input("name:"), input("url:"), input("status code check:")
         config['timeout'] = int(timeout)
+        config['slack_user'] = slack_user
+        config['slack_web_hook'] = slack_web_hook
         config['services'] = []
-        config['services'].append({'name': name, 'url': url})
+        config['services'].append({'name': name, 'url': url, 'status': int(status)})
 
     """
     Updating the config.json with the data
